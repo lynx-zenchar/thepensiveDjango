@@ -1,0 +1,17 @@
+<!-- featured.html -->
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <h2>Featured Blogs</h2>
+    <ul class="list-group">
+        {% for blog in featured_posts %}
+            <li class="list-group-item">
+                <a href="{% url 'blog_detail' blog.id %}" class="blog-link">{{ blog.title }}</a>
+                <div>{{ blog.content|truncatewords:30|safe }}</div>
+            </li>
+        {% empty %}
+            <li class="list-group-item">No featured blogs available.</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

@@ -1,0 +1,32 @@
+# .gitignore
+
+# Python
+*.pyc
+__pycache__/
+
+# Django
+*.log
+*.pot
+*.pyc
+*.so
+*.sqlite3
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+*.sqlite
+*.pyo
+*.pyd
+*.pyc
+__pycache__/
+db.sqlite3
+media/
+staticfiles/
+
+# Virtual environment
+env/
+venv/
+.env
+
+# VS Code
+.vscode/

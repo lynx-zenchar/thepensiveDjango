@@ -1,0 +1,17 @@
+<!-- thepensiveDjango/thepensive_django/templates/blog/post_detail.html -->
+
+{% extends 'base.html' %}
+{% block title %}
+    {{ post.title }}
+{% endblock %}
+{% block content %}
+    <div class="container mt-5">
+        <h1>{{ post.title }}</h1>
+        <img src="{{ post.image.url }}" alt="{{ post.title }}" width="500">
+        <p><strong>Author:</strong> <em>{{ post.author.username }}</em></p>
+        <p><strong>Published:</strong> {{ post.created_at }}</p>
+        <div class="content-margin">
+            {{ post.content|safe }}  <!-- Use the 'safe' filter to render HTML -->
+        </div>
+    </div>
+{% endblock %}

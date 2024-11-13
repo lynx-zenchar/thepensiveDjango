@@ -1,0 +1,21 @@
+<!-- thepensiveDjango/thepensive_django/templates/blog/home.html -->
+
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <h2>All Blogs</h2>
+    <ul class="list-group">
+        {% for blog in blogs %}
+            <li class="list-group-item">
+                {% if blog.image %}
+                    <img src="{{ blog.image.url }}" alt="{{ blog.title }}" class="img-fluid mb-3" style="max-width: 100%; height: auto;">
+                {% endif %}
+                <a href="{% url 'blog_detail' blog.id %}" class="blog-link">{{ blog.title }}</a>
+                <div>{{ blog.content|truncatewords:70|safe }}</div>
+            </li>
+        {% empty %}
+            <li class="list-group-item">No blogs available.</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
