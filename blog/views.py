@@ -16,8 +16,8 @@ def blog_detail(request, blog_id):
     return render(request, 'blog/blog_detail.html', {'blog': blog, 'comments': comments})
 
 def public_journal(request):
-    posts = BlogPost.objects.filter(public_journal=True)
-    return render(request, 'blog/public_journal.html', {'posts': posts})
+    public_journals = BlogPost.objects.filter(public_journal=True)
+    return render(request, 'blog/public_journal.html', {'public_journals': public_journals})
 
 @login_required
 def create_blog_post(request):
@@ -37,5 +37,5 @@ def about(request):
     return render(request, 'blog/about.html')
 
 def featured(request):
-    featured_posts = BlogPost.objects.filter(featured=True).order_by('-created_at')
-    return render(request, 'blog/featured.html', {'featured_posts': featured_posts})
+    featured_blogs = BlogPost.objects.filter(featured=True)
+    return render(request, 'blog/featured.html', {'featured_blogs': featured_blogs})

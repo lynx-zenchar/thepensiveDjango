@@ -11,10 +11,15 @@ class BlogPost(models.Model):
     featured = models.BooleanField(default=False)
     public_journal = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
-    image = models.ImageField(upload_to='blog_images/', null=True, blank=True)  # Add this field
+    published_at = models.DateTimeField(null=True, blank=True)  # New field
+    image = models.ImageField(upload_to='blog_images/', null=True, blank=True)
 
     def __str__(self):
         return self.title
+
+    def get_display_date(self):
+        """Return published_at if set, else created_at."""
+        return self.published_at if self.published_at else self.created_at
 
 class Comment(models.Model):
     blog_post = models.ForeignKey('BlogPost', on_delete=models.CASCADE, related_name='comments')

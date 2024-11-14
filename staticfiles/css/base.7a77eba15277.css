@@ -1,0 +1,196 @@
+/* static/css/base.css */
+
+/* Blog Title Styling */
+.blog-title {
+    font-family: 'Merriweather', serif;
+    font-size: 72px;
+    margin-bottom: 20px;
+    color: #333333;
+}
+
+/* Set the entire webpage background to #F4F4F4 */
+body {
+    background-color: #F4F4F4;
+    font-family: "Source Sans Pro", Helvetica, sans-serif;
+    color: #646464;
+    font-size: 14pt;
+    line-height: 1.75;
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+
+/* Header Styling */
+header {
+    background-color: #FFFFFF; /* Set header background to white */
+    padding: 20px 0;
+}
+
+/* Blog Title Styling */
+.blog-title {
+    font-family: 'Merriweather', serif;
+    font-size: 72px;
+    margin-bottom: 20px;
+    color: #333333;
+}
+
+/* Navbar Styling */
+.bg-navbar {
+    background-color: #6D6D6D !important; /* Navbar background color */
+}
+
+/* Navbar Links Styling */
+.navbar-nav .nav-link {
+    color: #f8f9fa !important; /* Light text color for contrast */
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s;
+    text-decoration: none; /* Remove underline and other text decorations */
+}
+
+/* Add separators between navbar items without absolute positioning */
+.navbar-nav .nav-item:not(:last-child) .nav-link::after {
+    content: "|";
+    color: #ffffff;
+    margin-left: 10px;
+    display: inline; /* Ensure inline display to prevent overlap */
+    position: static; /* Remove absolute positioning */
+    vertical-align: middle; /* Align separator vertically with text */
+}
+
+/* Remove separator from the last navbar item */
+.navbar-nav .nav-item:last-child .nav-link::after {
+    content: "";
+}
+
+/* Active Navbar Link Styling */
+.navbar-nav .nav-link.active {
+    font-weight: 700;
+    border-bottom: 2px solid #f8f9fa;
+    color: #ffffff !important;
+}
+
+/* Hover Effect for Navbar Links */
+.navbar-nav .nav-link:hover {
+    color: #d4d4d4 !important; /* Slightly lighter on hover */
+}
+
+/* Body Content Styling */
+.content {
+    background-color: #FFFFFF; /* Content area background set to white */
+    padding: 20px;
+}
+
+/* Blog Card Overrides */
+.card-title {
+    font-family: 'Merriweather', serif;
+    font-size: 24px;
+    color: #3c3b3b;
+}
+
+.card-text {
+    font-family: 'Source Sans Pro', Helvetica, sans-serif;
+    color: #646464;
+}
+
+/* Read More Button Styling */
+.btn-primary {
+    background-color: #2ebaae;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #279e94;
+}
+
+/* Optional: Card Hover Effect */
+.card:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s;
+}
+
+/* Dropdown Button */
+.dropbtn {
+    background-color: #333;
+    color: white;
+    padding: 14px 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    background-color: #555;
+}
+
+/* base.css */
+
+.sub-title {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 20px !important;
+}
+.content-box {
+    background-color: #ffffff; /* White background */
+    padding: 40px;            /* Increased padding inside the box */
+    border-radius: 8px;       /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    margin: 40px auto;        /* Center the box with larger margins */
+    max-width: 800px;         /* Limit the maximum width of the box */
+}
+
+.content-title {
+    text-align: center;       /* Center the title */
+    margin-bottom: 20px;      /* Space below the title */
+}
+
+.content-body {
+    text-align: justify;      /* Justify the text for better readability */
+}
+
+/* Style links within the blog content */
+.content-body a {
+    color: #000000; /* Black color */
+    font-weight: bold; /* Bold text */
+    text-decoration: none; /* Remove underline */
+}
+
+.content-body a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Style links in the blog list */
+.blog-link {
+    color: #000000; /* Black color */
+    font-weight: bold; /* Bold text */
+    text-decoration: none; /* Remove underline */
+}
+
+.blog-link:hover {
+    text-decoration: underline; /* Underline on hover */
+}

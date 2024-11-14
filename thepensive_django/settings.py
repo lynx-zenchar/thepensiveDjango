@@ -140,3 +140,5 @@ USE_I18N = True
 USE_TZ = True
 
 
+# WhiteNoise Configuration
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'

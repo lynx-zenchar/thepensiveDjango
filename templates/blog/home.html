@@ -1,17 +1,31 @@
 <!-- thepensiveDjango/thepensive_django/templates/blog/home.html -->
-
 {% extends "base.html" %}
+{% load static %}
 {% block content %}
 <div class="container mt-5">
     <h2>All Blogs</h2>
     <ul class="list-group">
         {% for blog in blogs %}
             <li class="list-group-item">
-                {% if blog.image %}
-                    <img src="{{ blog.image.url }}" alt="{{ blog.title }}" class="img-fluid mb-3" style="max-width: 100%; height: auto;">
-                {% endif %}
-                <a href="{% url 'blog_detail' blog.id %}" class="blog-link">{{ blog.title }}</a>
-                <div>{{ blog.content|truncatewords:70|safe }}</div>
+                <div class="d-flex align-items-center">
+                    <div class="flex-grow-1">
+                        <a href="{% url 'blog_detail' blog.id %}" class="blog-link h5">{{ blog.title }}</a>
+                        <p class="mb-1">{{ blog.content|truncatewords:70|safe }}</p>
+                        <small class="text-muted">
+                            By {{ blog.author.username }} on 
+                            {% if blog.published_at %}
+                                {{ blog.published_at|date:"F d, Y" }}
+                            {% else %}
+                                {{ blog.created_at|date:"F d, Y" }}
+                            {% endif %}
+                        </small>
+                    </div>
+                    {% if blog.image %}
+                        <div class="ms-3 flex-shrink-0">
+                            <img src="{{ blog.image.url }}" alt="{{ blog.title }}" class="img-thumbnail" style="width: 100px; height: 100px; object-fit: cover;">
+                        </div>
+                    {% endif %}
+                </div>
             </li>
         {% empty %}
             <li class="list-group-item">No blogs available.</li>

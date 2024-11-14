@@ -13,10 +13,11 @@ class BlogPostAdminForm(forms.ModelForm):
         fields = '__all__'
 
 class BlogPostAdmin(admin.ModelAdmin):
-    form = BlogPostAdminForm
-    list_display = ('title', 'author', 'featured', 'public_journal', 'created_at')
-    list_filter = ('featured', 'public_journal', 'created_at')
-    search_fields = ('title', 'content', 'author__username')
+    list_display = ['title', 'author', 'featured', 'public_journal', 'created_at', 'published_at']
+    list_filter = ['featured', 'public_journal', 'author']
+    search_fields = ['title', 'content']
+    fields = ['title', 'content', 'author', 'featured', 'public_journal', 'image', 'published_at']
+
 
 admin.site.register(BlogPost, BlogPostAdmin)
 admin.site.register(Comment)
