@@ -194,3 +194,19 @@ header {
 .blog-link:hover {
     text-decoration: underline; /* Underline on hover */
 }
+
+
+.bio-content {
+    margin-top: 20px; /* Adds space above the bio content if needed */
+}
+
+/* Ensures that paragraphs within bio-content follow CKEditor's alignment */
+.bio-content p {
+    text-align: inherit; /* Allows paragraphs to inherit alignment from parent or inline styles */
+}
+
+@media (min-width: 768px) {
+    .content-box .bio-content {
+        margin-left: 20px; /* Adds a 20px space between the image and text */
+    }
+}

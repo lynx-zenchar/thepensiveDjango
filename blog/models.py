@@ -29,3 +29,31 @@ class Comment(models.Model):
 
     def __str__(self):
         return f'Comment by {self.author.username} on {self.blog_post.title}'
+
+class About(models.Model):
+    image = models.ImageField(
+        upload_to='blog_images/', 
+        null=True, 
+        blank=True,
+        help_text="Upload an image for the About page (e.g., a profile picture)."
+    )
+    bio = RichTextUploadingField(
+        config_name='default',
+        help_text="Enter your bio with rich text formatting."
+    )
+    email_primary = models.EmailField(
+        max_length=254, 
+        help_text="Primary contact email."
+    )
+    email_secondary = models.EmailField(
+        max_length=254, 
+        blank=True, 
+        help_text="Secondary contact email (optional)."
+    )
+
+    def __str__(self):
+        return "About Page Content"
+
+    class Meta:
+        verbose_name = "About Page"
+        verbose_name_plural = "About Pages"

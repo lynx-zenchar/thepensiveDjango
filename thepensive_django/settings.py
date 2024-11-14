@@ -28,6 +28,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 # Custom User Model (if using)
 AUTH_USER_MODEL = 'users.CustomUser'
 
+# CKEditor Configuration
 CKEDITOR_UPLOAD_PATH = "uploads/"
 CKEDITOR_CONFIGS = {
     'default': {

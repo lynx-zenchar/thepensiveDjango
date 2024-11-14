@@ -1,9 +1,32 @@
 {% extends "base.html" %}
+{% load static %}
 {% block content %}
 <div class="container mt-5">
     <div class="content-box">
+        <!-- Display Blog Image -->
+        {% if blog.image %}
+            <div class="mb-4 text-center">
+                <img 
+                    src="{{ blog.image.url }}" 
+                    alt="{{ blog.title }}" 
+                    class="img-fluid rounded" 
+                    style="max-width: 500px; max-height: 500px; object-fit: cover;"
+                >
+            </div>
+        {% endif %}
+
+        <!-- Blog Title -->
         <h2 class="content-title">{{ blog.title }}</h2>
-        <div class="content-body">{{ blog.content|safe }}</div>
+
+        <!-- Publication Date -->
+        <p class="text-muted mb-4">
+            Published on {{ blog.get_display_date|date:"F d, Y" }}
+        </p>
+
+        <!-- Blog Content -->
+        <div class="content-body">
+            {{ blog.content|safe }}
+        </div>
     </div>
 </div>
 {% endblock %}

@@ -1,7 +1,7 @@
 # thepensiveDjango/thepensive_django/blog/views.py
 
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import BlogPost, Comment
+from .models import BlogPost, Comment, About
 from django.contrib.auth.decorators import login_required
 from .forms import BlogPostForm, CommentForm
 from django.contrib import messages
@@ -34,7 +34,11 @@ def create_blog_post(request):
     return render(request, 'blog/create_blog_post.html', {'form': form})
 
 def about(request):
-    return render(request, 'blog/about.html')
+    about_content = About.objects.first()
+    if not about_content:
+        # Optionally, log this event or notify an administrator
+        return render(request, 'blog/about.html', {'about': None})
+    return render(request, 'blog/about.html', {'about': about_content})
 
 def featured(request):
     featured_blogs = BlogPost.objects.filter(featured=True)

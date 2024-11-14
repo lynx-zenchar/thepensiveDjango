@@ -1,8 +1,33 @@
+<!-- blog/templates/blog/about.html -->
 {% extends "base.html" %}
-
+{% load static %}
 {% block content %}
 <div class="container mt-5">
-    <h2>About Me</h2>
-    <p>Your bio goes here.</p>
+    <div class="content-box">
+        <!-- Display About Image -->
+        {% if about.image %}
+            <div class="mb-4 text-center">
+                <img 
+                    src="{{ about.image.url }}" 
+                    alt="Matthew Eleazar" 
+                    class="img-fluid rounded" 
+                    style="max-width: 200px; height: auto; object-fit: cover;"
+                >
+            </div>
+        {% endif %}
+
+        <!-- About Bio -->
+        <div class="bio-content">
+            {{ about.bio|safe }}
+            <p>If you have any opportunities or questions, or just wanna chat, feel free to reach out at:</p>
+            <p>
+                <a href="mailto:{{ about.email_primary }}">{{ about.email_primary }}</a>
+                {% if about.email_secondary %}
+                    <br>
+                    <a href="mailto:{{ about.email_secondary }}">{{ about.email_secondary }}</a>
+                {% endif %}
+            </p>
+        </div>
+    </div>
 </div>
 {% endblock %}
