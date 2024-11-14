@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "blog/wsgi.py",
+      "src": "thepensive_django/wsgi.py",
       "use": "@vercel/python",
       "config": { "maxLambdaSize": "15mb" }
     }
@@ -10,7 +10,7 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "blog/wsgi.py"
+      "dest": "thepensive_django/wsgi.py"
     }
   ]
 }
