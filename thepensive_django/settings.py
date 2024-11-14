@@ -4,6 +4,43 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Static files (CSS, JavaScript, Images)
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR / 'static']
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+# Media files (Uploaded content)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
+# Default primary key field type
+# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Redirect URLs after login/logout
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
+
+# Crispy Forms Configuration (if using)
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+# Custom User Model (if using)
+AUTH_USER_MODEL = 'users.CustomUser'
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+        'height': 300,
+        'width': '100%',
+        'extraPlugins': ','.join([
+            'uploadimage',  # Enables image uploads
+            # Add other plugins if needed
+        ]),
+    },
+}
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
@@ -102,45 +139,4 @@ USE_I18N = True
 
 USE_TZ = True
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = '/static/'
-
-STATICFILES_DIRS = [
-    BASE_DIR / 'static',  # Using pathlib
-]
-
-STATIC_ROOT = BASE_DIR / 'staticfiles'  # Directory for collectstatic
-
-# Media files (Uploaded content)
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
-
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# Redirect URLs after login/logout
-LOGIN_REDIRECT_URL = 'home'
-LOGOUT_REDIRECT_URL = 'home'
-
-# Crispy Forms Configuration (if using)
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
-
-# Custom User Model (if using)
-AUTH_USER_MODEL = 'users.CustomUser'
-
-CKEDITOR_UPLOAD_PATH = "uploads/"
-CKEDITOR_CONFIGS = {
-    'default': {
-        'toolbar': 'full',
-        'height': 300,
-        'width': '100%',
-        'extraPlugins': ','.join([
-            'uploadimage',  # Enables image uploads
-            # Add other plugins if needed
-        ]),
-    },
-}

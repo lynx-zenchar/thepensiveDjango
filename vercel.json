@@ -5,9 +5,17 @@
       "src": "thepensive_django/wsgi.py",
       "use": "@vercel/python",
       "config": { "maxLambdaSize": "15mb" }
+    },
+    {
+      "src": "static/**/*",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
+    {
+      "src": "/static/(.*)",
+      "dest": "/static/$1"
+    },
     {
       "src": "/(.*)",
       "dest": "thepensive_django/wsgi.py"
